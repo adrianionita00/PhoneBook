@@ -1,0 +1,20 @@
+﻿@model StefaniniPhoneBook.Models.DetailType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DetailType</legend>
+
+    <div class="display-label">DetailTypeData</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetailTypeData)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DetailTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

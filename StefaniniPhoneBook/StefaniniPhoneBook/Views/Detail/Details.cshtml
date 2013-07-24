@@ -1,0 +1,30 @@
+﻿@model StefaniniPhoneBook.Models.Detail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Detail</legend>
+
+    <div class="display-label">DetailType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetailType.DetailTypeData)
+    </div>
+
+    <div class="display-label">Contact</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contact.LastName)
+    </div>
+
+    <div class="display-label">DetailData</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetailData)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using StefaniniPhoneBook.Models;
+using PagedList;
 
 namespace StefaniniPhoneBook.Controllers
 { 
@@ -21,13 +22,20 @@ namespace StefaniniPhoneBook.Controllers
         //    return View(db.Contacts.ToList());
         //}
 
-        public ViewResult Index(string sortOrder)
+        public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.FirstNameSortParm = String.IsNullOrEmpty(sortOrder) ? "FirstName desc" : "";
             ViewBag.LastNameSortParm = String.IsNullOrEmpty(sortOrder) ? "LastName desc" : "";
-            
+
             var contacts = from c in db.Contacts
                            select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                contacts = contacts.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())
+                                       || s.FirstName.ToUpper().Contains(searchString.ToUpper()));
+            }
+
             switch (sortOrder)
             {
                 case "FirstName desc":
