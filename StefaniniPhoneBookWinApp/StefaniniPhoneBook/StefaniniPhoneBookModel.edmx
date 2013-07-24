@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StefaniniPhoneBookModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="StefaniniPhoneBookModelStoreContainer">
+          <EntitySet Name="Contact" EntityType="StefaniniPhoneBookModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Detail" EntityType="StefaniniPhoneBookModel.Store.Detail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DetailType" EntityType="StefaniniPhoneBookModel.Store.DetailType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="StefaniniPhoneBookModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Detail_Contact" Association="StefaniniPhoneBookModel.Store.FK_Detail_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Detail" EntitySet="Detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detail_DetailType" Association="StefaniniPhoneBookModel.Store.FK_Detail_DetailType">
+            <End Role="DetailType" EntitySet="DetailType" />
+            <End Role="Detail" EntitySet="Detail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LastName" Type="nchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="DetailTypeID" Type="int" Nullable="false" />
+          <Property Name="DetailData" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DetailType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DetailTypeData" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="255" />
+          <Property Name="Hash" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Detail_Contact">
+          <End Role="Contact" Type="StefaniniPhoneBookModel.Store.Contact" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detail" Type="StefaniniPhoneBookModel.Store.Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detail_DetailType">
+          <End Role="DetailType" Type="StefaniniPhoneBookModel.Store.DetailType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detail" Type="StefaniniPhoneBookModel.Store.Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetailType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="DetailTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StefaniniPhoneBookModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="StefaniniPhoneBookContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="StefaniniPhoneBookModel.Contact" />
+          <EntitySet Name="Users" EntityType="StefaniniPhoneBookModel.User" />
+          <EntitySet Name="Details" EntityType="StefaniniPhoneBookModel.Detail" />
+          <AssociationSet Name="FK_Detail_Contact" Association="StefaniniPhoneBookModel.FK_Detail_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Detail" EntitySet="Details" />
+          </AssociationSet>
+          <EntitySet Name="DetailTypes" EntityType="StefaniniPhoneBookModel.DetailType" />
+          <AssociationSet Name="FK_Detail_DetailType" Association="StefaniniPhoneBookModel.FK_Detail_DetailType">
+            <End Role="DetailType" EntitySet="DetailTypes" />
+            <End Role="Detail" EntitySet="Details" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Details" Relationship="StefaniniPhoneBookModel.FK_Detail_Contact" FromRole="Contact" ToRole="Detail" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Salt" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Hash" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Detail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ContactID" Nullable="false" />
+          <Property Type="Int32" Name="DetailTypeID" Nullable="false" />
+          <Property Type="String" Name="DetailData" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="StefaniniPhoneBookModel.FK_Detail_Contact" FromRole="Detail" ToRole="Contact" />
+          <NavigationProperty Name="DetailType" Relationship="StefaniniPhoneBookModel.FK_Detail_DetailType" FromRole="Detail" ToRole="DetailType" />
+        </EntityType>
+        <Association Name="FK_Detail_Contact">
+          <End Type="StefaniniPhoneBookModel.Contact" Role="Contact" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="StefaniniPhoneBookModel.Detail" Role="Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DetailType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DetailTypeData" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Details" Relationship="StefaniniPhoneBookModel.FK_Detail_DetailType" FromRole="DetailType" ToRole="Detail" />
+        </EntityType>
+        <Association Name="FK_Detail_DetailType">
+          <End Type="StefaniniPhoneBookModel.DetailType" Role="DetailType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="StefaniniPhoneBookModel.Detail" Role="Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetailType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Detail">
+              <PropertyRef Name="DetailTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StefaniniPhoneBookModelStoreContainer" CdmEntityContainer="StefaniniPhoneBookContext">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="StefaniniPhoneBookModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StefaniniPhoneBookModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details">
+            <EntityTypeMapping TypeName="StefaniniPhoneBookModel.Detail">
+              <MappingFragment StoreEntitySet="Detail">
+                <ScalarProperty Name="DetailData" ColumnName="DetailData" />
+                <ScalarProperty Name="DetailTypeID" ColumnName="DetailTypeID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailTypes">
+            <EntityTypeMapping TypeName="StefaniniPhoneBookModel.DetailType">
+              <MappingFragment StoreEntitySet="DetailType">
+                <ScalarProperty Name="DetailTypeData" ColumnName="DetailTypeData" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

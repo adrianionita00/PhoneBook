@@ -1,0 +1,8 @@
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\bin\Debug\StefaniniPhoneBook.exe.config
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\bin\Debug\StefaniniPhoneBook.exe
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\bin\Debug\StefaniniPhoneBook.pdb
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\bin\Debug\EntityFramework.dll
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\bin\Debug\EntityFramework.xml
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\obj\Debug\StefaniniPhoneBook.csprojResolveAssemblyReference.cache
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\obj\Debug\StefaniniPhoneBook.exe
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook\obj\Debug\StefaniniPhoneBook.pdb
