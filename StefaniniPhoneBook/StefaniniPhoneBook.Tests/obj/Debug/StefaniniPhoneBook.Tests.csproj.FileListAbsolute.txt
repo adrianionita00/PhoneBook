@@ -1,0 +1,10 @@
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\StefaniniPhoneBook.Tests.dll.config
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\StefaniniPhoneBook.Tests.dll
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\StefaniniPhoneBook.Tests.pdb
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\StefaniniPhoneBook.dll
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\EntityFramework.dll
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\StefaniniPhoneBook.pdb
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\bin\Debug\EntityFramework.xml
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\obj\Debug\StefaniniPhoneBook.Tests.csprojResolveAssemblyReference.cache
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\obj\Debug\StefaniniPhoneBook.Tests.dll
+C:\Users\adrian\Desktop\StefaniniPhoneBook\StefaniniPhoneBook.Tests\obj\Debug\StefaniniPhoneBook.Tests.pdb

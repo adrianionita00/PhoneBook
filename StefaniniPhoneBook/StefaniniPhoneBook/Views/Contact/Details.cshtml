@@ -1,0 +1,49 @@
+﻿@model StefaniniPhoneBook.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Contact</legend>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+    @Html.LabelFor(model => model.Details)
+</div>
+<div class="display-field">
+    <table>
+        <tr>
+            <th>DetailTypeData</th>
+            
+        </tr>
+        @foreach (var item in Model.Details)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetailType.DetailTypeData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetailData)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ContactID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
