@@ -10,7 +10,8 @@ namespace StefaniniPhoneBook.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to Stefanini Phone Book!";
+            ViewBag.Message = "Click 'Contacts' tab to view data... ";
+
 
             return View();
         }

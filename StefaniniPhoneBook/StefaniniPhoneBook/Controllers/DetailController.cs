@@ -34,13 +34,20 @@ namespace StefaniniPhoneBook.Controllers
         //
         // GET: /Detail/Create
 
+        //public ActionResult Create()
+        //{
+        //    ViewBag.DetailTypeID = new SelectList(db.DetailsTypes, "DetailTypeID", "DetailTypeData");
+        //    ViewBag.ContactID = new SelectList(db.Contacts, "ContactID", "LastName");
+        //    return View();
+        //} 
+
         public ActionResult Create(int id)
         {
             ViewBag.DetailTypeID = new SelectList(db.DetailsTypes, "DetailTypeID", "DetailTypeData");
             ViewBag.ContactID = new SelectList(db.Contacts, "ContactID", "LastName");
             return View();
         } 
-
+        
         //
         // POST: /Detail/Create
 
@@ -52,13 +59,14 @@ namespace StefaniniPhoneBook.Controllers
                 detail.ContactID = int.Parse(RouteData.Values["id"].ToString());
                 db.Details.Add(detail);
                 db.SaveChanges();
+                //return RedirectToAction("Index");
                 return RedirectToAction("Details", "Contact", new { id = detail.ContactID });
+
             }
 
             ViewBag.DetailTypeID = new SelectList(db.DetailsTypes, "DetailTypeID", "DetailTypeData", detail.DetailTypeID);
             ViewBag.ContactID = new SelectList(db.Contacts, "ContactID", "LastName", detail.ContactID);
             return View(detail);
-            //return RedirectToAction("Details", "Contact", new { id=detail.ContactID});
         }
         
         //
@@ -69,7 +77,6 @@ namespace StefaniniPhoneBook.Controllers
             Detail detail = db.Details.Find(id);
             ViewBag.DetailTypeID = new SelectList(db.DetailsTypes, "DetailTypeID", "DetailTypeData", detail.DetailTypeID);
             ViewBag.ContactID = new SelectList(db.Contacts, "ContactID", "LastName", detail.ContactID);
-            
             return View(detail);
         }
 
@@ -83,7 +90,8 @@ namespace StefaniniPhoneBook.Controllers
             {
                 db.Entry(detail).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToAction("Details", "Contact", new { id = detail.ContactID });
             }
             ViewBag.DetailTypeID = new SelectList(db.DetailsTypes, "DetailTypeID", "DetailTypeData", detail.DetailTypeID);
             ViewBag.ContactID = new SelectList(db.Contacts, "ContactID", "LastName", detail.ContactID);
@@ -108,6 +116,7 @@ namespace StefaniniPhoneBook.Controllers
             Detail detail = db.Details.Find(id);
             db.Details.Remove(detail);
             db.SaveChanges();
+            //return RedirectToAction("Index");
             return RedirectToAction("Details", "Contact", new { id = detail.ContactID });
         }
 

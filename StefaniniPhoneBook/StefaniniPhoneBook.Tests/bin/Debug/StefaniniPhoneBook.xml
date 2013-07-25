@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StefaniniPhoneBook</name>
+    </assembly>
+    <members>
+        <member name="T:StefaniniPhoneBook.Controllers.ContactController">
+            <summary>
+             This class performs display of data to the Page.
+            </summary>
+        </member>
+    </members>
+</doc>

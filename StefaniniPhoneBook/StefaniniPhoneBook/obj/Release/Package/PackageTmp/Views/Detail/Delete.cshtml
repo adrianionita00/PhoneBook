@@ -1,0 +1,33 @@
+﻿@model StefaniniPhoneBook.Models.Detail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Detail</legend>
+
+    <div class="display-label">DetailType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetailType.DetailTypeData)
+    </div>
+
+    <div class="display-label">Contact</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contact.LastName)
+    </div>
+
+    <div class="display-label">DetailData</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DetailData)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

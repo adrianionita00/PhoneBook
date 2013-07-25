@@ -9,13 +9,21 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" /></p>
+}
+
 <table>
     <tr>
         <th>
-            LastName
+            @Html.ActionLink("LastName", "Index", new { sortOrder=ViewBag.LastNameSortParm })
         </th>
         <th>
-            FirstName
+            @Html.ActionLink("FirstName", "Index", new { sortOrder=ViewBag.FirstNameSortParm })
         </th>
         <th></th>
     </tr>

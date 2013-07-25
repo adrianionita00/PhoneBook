@@ -26,7 +26,8 @@
     <table>
         <tr>
             <th>DetailTypeData</th>
-            
+            <th>DetailData</th>
+            <th>Edit/Delete</th>
         </tr>
         @foreach (var item in Model.Details)
         {
@@ -37,9 +38,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.DetailData)
                 </td>
+                <td>
+                    
+                    @Html.ActionLink("Edit","Edit","Detail",new { id=item.DetailID},null)
+                    @Html.ActionLink("Delete","Delete","Detail",new { id=item.DetailID},null)
+                </td>
             </tr>
         }
     </table>
+     @Html.ActionLink("Add New Detail", "Create", "Detail", new { id = Model.ContactID },null)
 </div>
 
 </fieldset>

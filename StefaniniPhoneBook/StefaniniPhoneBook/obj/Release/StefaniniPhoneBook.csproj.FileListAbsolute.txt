@@ -19,7 +19,6 @@ C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\obj\Release\StefaniniPhoneBook.csprojResolveAssemblyReference.cache
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\obj\Release\StefaniniPhoneBook.dll
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\obj\Release\StefaniniPhoneBook.pdb
-C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\App_Data\PhoneBook.sdf
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\x86\sqlcese40.dll
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\x86\sqlceqp40.dll
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\x86\sqlceme40.dll
@@ -40,3 +39,5 @@ C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\System.Data.SqlServerCe.dll
 C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\System.Data.SqlServerCe.Entity.dll
+C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\PagedList.dll
+C:\Users\adrian\Documents\GitHub\PhoneBook\StefaniniPhoneBook\StefaniniPhoneBook\bin\PagedList.xml

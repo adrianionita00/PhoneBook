@@ -9,7 +9,10 @@ using StefaniniPhoneBook.Models;
 using PagedList;
 
 namespace StefaniniPhoneBook.Controllers
-{ 
+{
+    /// <summary>
+    ///  This class performs display of data to the Page.
+    /// </summary>
     public class ContactController : Controller
     {
         private PhoneBookContext db = new PhoneBookContext();
